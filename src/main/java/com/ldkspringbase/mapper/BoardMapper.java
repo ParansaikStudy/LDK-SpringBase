@@ -1,4 +1,9 @@
 package com.ldkspringbase.mapper;
 
-public class BoardMapper {
+import com.ldkspringbase.entity.BoardEntity;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface BoardMapper {
+    BoardEntity createBoard();
 }
