@@ -22,18 +22,12 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'mysql:mysql-connector-java:8.0.35'
-
-    //runtimeOnly 'com.mysql:mysql-connector-j'
+    implementation 'mysql:mysql-connector-java:8.0.33'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
     compileOnly 'org.projectlombok:lombok'
-}
-
-tasks.named('bootBuildImage') {
-    builder = 'paketobuildpacks/builder-jammy-base:latest'
 }
 
 tasks.named('test') {

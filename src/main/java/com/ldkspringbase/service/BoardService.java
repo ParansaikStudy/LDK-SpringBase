@@ -7,15 +7,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class BoardService {
 
-    BoardMapper boardMapper;
-
-    @Autowired
-    public BoardService(BoardMapper boardMapper) {
-        this.boardMapper = boardMapper;
-    }
+    private final BoardMapper boardMapper;
 
     public List<BoardEntity> getAllBoards() {
         return boardMapper.getAllBoards();

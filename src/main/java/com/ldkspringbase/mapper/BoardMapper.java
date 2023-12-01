@@ -1,17 +1,21 @@
 package com.ldkspringbase.mapper;
 
 import com.ldkspringbase.entity.BoardEntity;
+
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
+
 @Mapper
 public interface BoardMapper {
-    List<BoardEntity> getAllBoards();
+	List<BoardEntity> getAllBoards();
 
-    BoardEntity getBoardById(int id);
+	BoardEntity getBoardById(int id);
 
-    void createBoard(BoardEntity board);
+	void createBoard(BoardEntity board);
 
-    void updateBoard(BoardEntity board);
+	void updateBoard(BoardEntity board);
 
-    void deleteBoard(Long id);
+	void deleteBoard(Long id);
 }

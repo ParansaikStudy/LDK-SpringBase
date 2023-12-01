@@ -18,10 +18,10 @@ public class BoardController {
 //        this.boardService = boardService;
 //    }
 
-    @GetMapping
-    public List<BoardEntity> getAllBoards() {
-        return boardService.getAllBoards();
-    }
+//    @GetMapping
+//    public List<BoardEntity> getAllBoards() {
+//        return boardService.getAllBoards();
+//    }
 
     @GetMapping("/{id}")
     public BoardEntity getBoardById(@PathVariable int id) {
@@ -33,15 +33,15 @@ public class BoardController {
         boardService.createBoard(board);
     }
 
-    @PutMapping("/{id}")
-    public void updateBoard(@PathVariable int id, @RequestBody BoardEntity board) {
-        board.setId(id);
-        boardService.updateBoard(board);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteBoard(@PathVariable Long id) {
-        boardService.deleteBoard(id);
-    }
+//    @PutMapping("/{id}")
+//    public void updateBoard(@PathVariable int id, @RequestBody BoardEntity board) {
+//        board.setId(id);
+//        boardService.updateBoard(board);
+//    }
+//
+//    @DeleteMapping("/{id}")
+//    public void deleteBoard(@PathVariable Long id) {
+//        boardService.deleteBoard(id);
+//    }
 }
 
