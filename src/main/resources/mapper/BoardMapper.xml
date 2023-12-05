@@ -4,46 +4,37 @@
 
 <mapper namespace="com.ldkspringbase.mapper.BoardMapper">
 
-    <!--    <resultMap id="boardResultMap" type="BoardEntity">-->
-    <!--        <id property="id" column="id"/>-->
-    <!--        <result property="userName" column="user_name"/>-->
-    <!--        <result property="title" column="title"/>-->
-    <!--        <result property="content" column="content"/>-->
-    <!--        <result property="date" column="date"/>-->
-    <!--        <result property="viewCount" column="view_count"/>-->
-    <!--    </resultMap>-->
-
-    <!--    <select id="getAllBoards" resultMap="boardResultMap">
+    <select id="getAllBoards" resultType="com.ldkspringbase.entity.BoardEntity">
             SELECT *
-            FROM Boards
-        </select>-->
+            FROM Boards;
+     </select>
 
-    <select id="getBoardById" parameterType="long" resultMap="BoardEntity">
+    <select id="getBoardById" parameterType="int" resultType="com.ldkspringbase.entity.BoardEntity">
         SELECT *
-        FROM Boards
+        FROM boards
         WHERE id = #{id}
     </select>
 
-    <insert id="createBoard" parameterType="BoardEntity">
-        INSERT INTO Boards(user_name, title, content, date, view_count)
-        VALUES (#{userName}, #{title}, #{content}, #{date}, #{viewCount})
+    <insert id="createBoard" parameterType="com.ldkspringbase.entity.BoardEntity">
+        INSERT INTO boards(id, user_name, title, content, date1, view_count)
+        VALUES (#{id}, #{username}, #{title}, #{content}, #{data1}, #{viewcount});
     </insert>
 
-    <!--    <update id="updateBoard" parameterType="BoardEntity">
-            UPDATE Boards
-            SET user_name  = #{userName},
-                title      = #{title},
-                content    = #{content},
-                date       = #{date},
-                view_count = #{viewCount}
-            WHERE id = #{id}
-        </update>
+<!--    <update id="updateBoard" parameterType="com.ldkspringbase.entity.BoardEntity">-->
+<!--        UPDATE Boards-->
+<!--        SET user_name  = #{userName},-->
+<!--            title      = #{title},-->
+<!--            content    = #{content},-->
+<!--            date1      = #{date1},-->
+<!--            view_count = #{viewCount}-->
+<!--        WHERE id = #{id}-->
+<!--    </update>-->
 
-        <delete id="deleteBoard" parameterType="long">
-            DELETE
-            FROM Boards
-            WHERE id = #{id}
-        </delete>-->
+<!--    <delete id="deleteBoard" parameterType="int">-->
+<!--        DELETE-->
+<!--        FROM Boards-->
+<!--        WHERE id = #{id}-->
+<!--    </delete>-->
 
 </mapper>
 

@@ -7,31 +7,40 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@RestController("/api/boards")
+
+@RestController
+@RequestMapping("/api/boards")
 @RequiredArgsConstructor
 public class BoardController {
-
     private final BoardService boardService;
-
 //    @Autowired
 //    public BoardController(BoardService boardService) {
 //        this.boardService = boardService;
 //    }
 
-//    @GetMapping
-//    public List<BoardEntity> getAllBoards() {
-//        return boardService.getAllBoards();
-//    }
+    // 전체 목록 조회
+    @GetMapping
+    public List<BoardEntity> getAllBoards() {
+        return boardService.getAllBoards();
+    }
 
+    // 글 하나 조회
     @GetMapping("/{id}")
     public BoardEntity getBoardById(@PathVariable int id) {
         return boardService.getBoardById(id);
     }
 
+    // 글 등록
     @PostMapping
-    public void createBoard(@RequestBody BoardEntity board) {
-        boardService.createBoard(board);
+    public BoardEntity createBoard(@RequestBody BoardEntity board) {
+        return boardService.createBoard(board); // Return the created board
     }
+
+//    @GetMapping("/test")
+//    public String tt() {
+//        return "hello";
+//    }
+
 
 //    @PutMapping("/{id}")
 //    public void updateBoard(@PathVariable int id, @RequestBody BoardEntity board) {
@@ -42,6 +51,7 @@ public class BoardController {
 //    @DeleteMapping("/{id}")
 //    public void deleteBoard(@PathVariable Long id) {
 //        boardService.deleteBoard(id);
+//
 //    }
 }
 

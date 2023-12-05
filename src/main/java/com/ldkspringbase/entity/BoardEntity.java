@@ -8,9 +8,9 @@ import java.time.LocalDate;
 @Setter
 public class BoardEntity {
     int id;
-    String userName;
+    String username;
     String title;
     String content;
-    LocalDate data;
-    int viewCount;
+    LocalDate data1;
+    int viewcount;
 }

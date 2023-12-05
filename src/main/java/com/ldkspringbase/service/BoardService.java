@@ -2,7 +2,6 @@ package com.ldkspringbase.service;
 
 import com.ldkspringbase.entity.BoardEntity;
 import com.ldkspringbase.mapper.BoardMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,15 +22,16 @@ public class BoardService {
         return boardMapper.getBoardById(id);
     }
 
-    public void createBoard(BoardEntity board) {
+    public BoardEntity createBoard(BoardEntity board) {
         boardMapper.createBoard(board);
+        return board;
     }
-
-    public void updateBoard(BoardEntity board) {
-        boardMapper.updateBoard(board);
-    }
-
-    public void deleteBoard(Long id) {
-        boardMapper.deleteBoard(id);
-    }
+//
+//    public void updateBoard(BoardEntity board) {
+//        boardMapper.updateBoard(board);
+//    }
+//
+//    public void deleteBoard(Long id) {
+//        boardMapper.deleteBoard(id);
+//    }
 }
