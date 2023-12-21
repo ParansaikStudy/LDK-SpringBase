@@ -23,15 +23,13 @@ public class BoardService {
     }
 
     public BoardEntity createBoard(BoardEntity board) {
-        boardMapper.createBoard(board);
-        return board;
+        try {
+            boardMapper.createBoard(board);
+            return board;
+        } catch (Exception e) {
+            // 실패 시 예외 처리
+            throw new RuntimeException("보드 생성에 실패하였습니다.", e);
+        }
     }
-//
-//    public void updateBoard(BoardEntity board) {
-//        boardMapper.updateBoard(board);
-//    }
-//
-//    public void deleteBoard(Long id) {
-//        boardMapper.deleteBoard(id);
-//    }
+
 }
