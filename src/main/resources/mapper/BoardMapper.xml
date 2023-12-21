@@ -35,6 +35,5 @@
 <!--        FROM Boards-->
 <!--        WHERE id = #{id}-->
 <!--    </delete>-->
-
 </mapper>
 
