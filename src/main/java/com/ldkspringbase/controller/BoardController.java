@@ -3,7 +3,6 @@ package com.ldkspringbase.controller;
 import com.ldkspringbase.entity.BoardEntity;
 import com.ldkspringbase.service.BoardService;
 import lombok.RequiredArgsConstructor;
-//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,13 +12,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BoardController {
     private final BoardService boardService;
-//    @Autowired
-//    public BoardController(BoardService boardService) {
-//        this.boardService = boardService;
-//    }
 
     // 전체 목록 조회
-    @GetMapping
+    @GetMapping("all")
     public List<BoardEntity> getAllBoards() {
         return boardService.getAllBoards();
     }
@@ -36,22 +31,4 @@ public class BoardController {
         return boardService.createBoard(board); // Return the created board
     }
 
-//    @GetMapping("/test")
-//    public String tt() {
-//        return "hello";
-//    }
-
-
-//    @PutMapping("/{id}")
-//    public void updateBoard(@PathVariable int id, @RequestBody BoardEntity board) {
-//        board.setId(id);
-//        boardService.updateBoard(board);
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public void deleteBoard(@PathVariable Long id) {
-//        boardService.deleteBoard(id);
-//
-//    }
 }
-
