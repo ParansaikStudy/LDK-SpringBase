@@ -5,9 +5,9 @@
 <mapper namespace="com.ldkspringbase.mapper.BoardMapper">
 
     <select id="getAllBoards" resultType="com.ldkspringbase.entity.BoardEntity">
-            SELECT *
-            FROM Boards;
-     </select>
+        SELECT *
+        FROM Boards;
+    </select>
 
     <select id="getBoardById" parameterType="int" resultType="com.ldkspringbase.entity.BoardEntity">
         SELECT *
@@ -16,25 +16,22 @@
     </select>
 
     <insert id="createBoard" parameterType="com.ldkspringbase.entity.BoardEntity">
-        INSERT INTO boards(id, user_name, title, content, date1, view_count)
-        VALUES (#{id}, #{username}, #{title}, #{content}, #{data1}, #{viewcount});
+        INSERT INTO boards(id, user_Name, title, content, nowDay, view_Count)
+        VALUES (#{id}, #{userName}, #{title}, #{content}, #{nowDay}, #{viewCount});
     </insert>
 
-<!--    <update id="updateBoard" parameterType="com.ldkspringbase.entity.BoardEntity">-->
-<!--        UPDATE Boards-->
-<!--        SET user_name  = #{userName},-->
-<!--            title      = #{title},-->
-<!--            content    = #{content},-->
-<!--            date1      = #{date1},-->
-<!--            view_count = #{viewCount}-->
-<!--        WHERE id = #{id}-->
-<!--    </update>-->
+    <update id="updateBoard" parameterType="com.ldkspringbase.entity.BoardEntity">
+        UPDATE Boards
+        SET user_Name  = #{userName},
+            title      = #{title},
+            content    = #{content},
+            nowDay     = #{nowDay},
+            view_Count = #{viewCount}
+        WHERE id = #{id}
+    </update>
 
-<!--    <delete id="deleteBoard" parameterType="int">-->
-<!--        DELETE-->
-<!--        FROM Boards-->
-<!--        WHERE id = #{id}-->
-<!--    </delete>-->
-
+    <delete id="deleteBoard" parameterType="int">
+        DELETE FROM Boards
+        WHERE id = #{id}
+    </delete>
 </mapper>
-
