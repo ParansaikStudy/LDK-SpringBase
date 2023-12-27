@@ -3,6 +3,8 @@ package com.ldkspringbase.controller;
 import com.ldkspringbase.entity.BoardEntity;
 import com.ldkspringbase.service.BoardService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +16,7 @@ public class BoardController {
     private final BoardService boardService;
 
     // 전체 목록 조회
-    @GetMapping("all")
+    @GetMapping("/all")
     public List<BoardEntity> getAllBoards() {
         return boardService.getAllBoards();
     }
@@ -31,4 +33,24 @@ public class BoardController {
         return boardService.createBoard(board); // Return the created board
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateBoard(@PathVariable int id, @RequestBody BoardEntity board) {
+        boolean isUpdated = boardService.updateBoard(id, board);
+
+        if (isUpdated) {
+            return ResponseEntity.ok("Board updated successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Board not found with id: " + id);
+        }
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteBoard(@PathVariable int id) {
+        boolean isDeleted = boardService.deleteBoard(id);
+
+        if (isDeleted) {
+            return ResponseEntity.ok("Board deleted successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Board not found with id: " + id);
+        }
+    }
 }

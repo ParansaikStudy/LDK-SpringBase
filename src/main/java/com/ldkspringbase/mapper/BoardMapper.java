@@ -9,4 +9,6 @@ public interface BoardMapper {
 	List<BoardEntity> getAllBoards();
 	BoardEntity getBoardById(int id);
 	void createBoard(BoardEntity board);
+	void updateBoard(BoardEntity board);
+	void deleteBoard(int id);
 }
